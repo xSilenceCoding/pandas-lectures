@@ -1,2 +1,2 @@
-# SMALL PANDAS TURIALS
+# SMALL PANDAS TUTORIALS
 Web Application to learn Pandas

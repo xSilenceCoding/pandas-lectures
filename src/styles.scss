@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
+
+@import "mdb-angular-ui-kit/assets/scss/mdb.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.activeRoute {
+  color: #ca8e1b !important;
+}
+
+* h5,
+h1 {
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-dialog {
+  margin-top: 9rem;
+}
+
+.parallax {
+  /* Create the parallax scrolling effect */
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  row-gap: 4rem;
+}

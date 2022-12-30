@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Glückwunsch</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-12 px-4">
+      <p style="color: black">Sehr gut, deine Lösung ist richtig!</p>
+
+      <hr *ngIf="tips" class="hr" />
+      <ol *ngIf="tips" class="list-group list-group-light list-group-numbered">
+        Hier noch weitere Lösungsvorschläge:
+        <li
+          *ngFor="let item of tips"
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div>{{ item.answer }}</div>
+            {{ item.tip }}
+          </div>
+          <span *ngIf="item.rec" class="badge rounded-pill badge-success"
+            >Empfohlen</span
+          >
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      mdbRipple
+      rippleColor="light"
+      type="button"
+      class="btn btn-dark"
+      (click)="modalRef.close()"
+    >
+      Schließen
+    </button>
+  </div>
+</div>

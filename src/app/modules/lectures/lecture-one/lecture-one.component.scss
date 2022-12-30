@@ -1,0 +1,41 @@
+.fc-mask {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.lecture-container {
+  margin-top: 10em;
+  margin-bottom: 8em;
+  width: 60%;
+  height: 100%;
+}
+
+.parallax {
+  /* Create the parallax scrolling effect */
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  /*  this is where the magic happens:  */
+  background-attachment: fixed;
+
+  background-position: center;
+  background-size: cover;
+  row-gap: 4rem;
+}
+
+.fc-button-container {
+  margin-top: 1rem;
+}
+
+.fc-richtextbox {
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .lecture-container {
+    width: 90%;
+  }
+}

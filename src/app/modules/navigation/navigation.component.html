@@ -1,0 +1,50 @@
+<!--TOP NAVIGATION-->
+<header id="header">
+  <div class="topnav" id="myTopnav">
+    <a href="#"
+      ><img class="logo animate" src="assets/nav/logo1.png" alt="" />
+    </a>
+
+    <a style="color: white"><p>SMALL PANDAS TUTORIALS</p></a>
+    <div class="main-nav">
+      <a
+        routerLinkActive="activeRoute"
+        routerLink="/home"
+        (click)="closeNavAfterNavigation()"
+        >Startseite</a
+      >
+
+      <a
+        routerLinkActive="activeRoute"
+        routerLink="/libs"
+        (click)="closeNavAfterNavigation()"
+        >Bibliotheken</a
+      >
+      <a
+        routerLinkActive="activeRoute"
+        routerLink="/lectures/"
+        (click)="closeNavAfterNavigation()"
+        >Lektionen</a
+      >
+      <a routerLinkActive="activeRoute" routerLink="/about-me">Über mich</a>
+
+      <a
+        routerLinkActive="activeRoute"
+        routerLink="/help"
+        class="btn2"
+        style="float: right"
+        ><button type="button" class="btn btn-outline-warning">
+          <i class="fa fa-handshake-o"></i> Hilfe
+        </button></a
+      >
+
+      <a
+        href="javascript:void(0);"
+        style="font-size: 15px"
+        class="icon"
+        (click)="navBar()"
+        >&#9776;</a
+      >
+    </div>
+  </div>
+</header>

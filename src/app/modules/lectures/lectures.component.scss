@@ -1,0 +1,47 @@
+.fc-mask {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.navbar {
+  background-color: rgba(1, 1, 1, 0.6);
+  width: 350px;
+  margin: auto;
+  margin-top: 120px;
+  box-shadow: 0px 6px 16px -6px rgba(1, 1, 1, 0.7);
+  transition: 0.5s;
+}
+
+.navbar a {
+  color: white;
+}
+
+.navbar a:hover {
+  color: #ca8e1b;
+}
+
+.lecture-container {
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 50%;
+  height: 100%;
+}
+
+.fc-button-container {
+  margin-top: 1rem;
+}
+
+.fc-richtextbox {
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .lecture-container {
+    width: 90%;
+  }
+
+  .rounded {
+    height: 100px;
+  }
+}

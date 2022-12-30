@@ -73,6 +73,7 @@ Install the Angular CLI globally:
 
 ```
 npm install -g @angular/cli
+npm install
 ```
 
 Create workspace:

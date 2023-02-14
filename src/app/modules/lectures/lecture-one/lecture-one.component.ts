@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { HelpComponent } from '../modals/help/help.component';
 
-import { readCSV, DataFrame, toJSON } from 'danfojs';
-import { asapScheduler, combineLatest } from 'rxjs';
 import { ResultComponent } from '../modals/result/result.component';
 import { FailedComponent } from '../modals/failed/failed.component';
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-lecture-one',
@@ -15,20 +13,13 @@ import { validateHorizontalPosition } from '@angular/cdk/overlay';
 })
 export class LectureOneComponent implements OnInit {
   modalRef: MdbModalRef<HelpComponent> | null = null;
-  df: any;
 
-  constructor(private modalService: MdbModalService) {}
+  constructor(
+    private modalService: MdbModalService,
+    private dService: DataService
+  ) {}
 
-  ngOnInit(): void {
-    readCSV('assets/database/cia.csv') //assumes file is in CWD
-      .then((df) => {
-        this.df = df;
-        //df.head().print();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+  ngOnInit(): void {}
 
   helpTaskOne() {
     this.modalRef = this.modalService.open(HelpComponent, {
@@ -122,11 +113,8 @@ export class LectureOneComponent implements OnInit {
 
   sendTaskOne(userInput: any) {
     const input = this.trim(userInput);
-    const result = 'df';
 
-    this.df.print();
-
-    if (result == input) {
+    if ('df' == input || 'print(df)' == input) {
       this.modalRef = this.modalService.open(ResultComponent, {});
     } else {
       this.modalRef = this.modalService.open(FailedComponent, {});
@@ -135,218 +123,280 @@ export class LectureOneComponent implements OnInit {
 
   // Checks if userInput is same as result
   sendTaskTwo(userInput: any) {
-    const input = this.trim(userInput);
-    const result = ['df.Name', "df['Name']", "df[['Name']]"];
+    const input = userInput.split('\n').map((line: any) => line);
 
-    let objResult = [
-      { answer: 'df.Name', tip: 'Ergibt ein Dataframe', rec: true },
-      { answer: "df['Name']", tip: 'Ergibt eine Serie' },
-      { answer: "df[['Name']]", tip: 'Ergibt ein DataFrame' },
-    ];
-
-    if (result[0] == input || result[1] == input) {
-      // Filter result and give other tips back
-      let tips = objResult.filter((item) => item.answer !== input);
-
-      // Open success modal with tips
-      this.modalRef = this.modalService.open(ResultComponent, {
-        data: {
-          tips: tips,
-        },
-      });
-    } else {
-      // Open failed modal
-      this.modalRef = this.modalService.open(FailedComponent, {});
-    }
+    this.dService.lectureOne_2(input).subscribe(
+      (result) => {
+        console.info(result);
+        if (result.body['success'] === true) {
+          this.modalRef = this.modalService.open(ResultComponent, {
+            data: { result: result.body['result'] },
+          });
+        } else {
+          // Open failed modal
+          this.modalRef = this.modalService.open(FailedComponent, {
+            data: { errorMessage: result.body['errorMessage'] },
+          });
+        }
+      },
+      (error) => {
+        console.error(error);
+        // Open error modal
+        this.modalRef = this.modalService.open(FailedComponent, {
+          data: { errorMessage: error['statusText'] },
+        });
+      }
+    );
   }
 
   // Checks if userInput is same as result
   sendTaskThree(userInput: any) {
-    const input = this.trim(userInput);
-    const result = ['df.Name', "df['Name']"];
+    const input = userInput.split('\n').map((line: any) => line);
 
-    if (result[0] == input || result[1] == input) {
-      // Filter result and give other tips back
-      const tips = result.filter((tip) => tip !== input);
-
-      // Open success modal with tips
-      this.modalRef = this.modalService.open(ResultComponent, {
-        data: {
-          tips: tips,
-        },
-      });
-    } else {
-      // Open failed modal
-      this.modalRef = this.modalService.open(FailedComponent, {});
-    }
+    this.dService.lectureOne_3(input).subscribe(
+      (result) => {
+        console.info(result);
+        if (result.body['success'] === true) {
+          this.modalRef = this.modalService.open(ResultComponent, {
+            data: { result: result.body['result'] },
+          });
+        } else {
+          // Open failed modal
+          this.modalRef = this.modalService.open(FailedComponent, {
+            data: { errorMessage: result.body['errorMessage'] },
+          });
+        }
+      },
+      (error) => {
+        console.error(error);
+        // Open error modal
+        this.modalRef = this.modalService.open(FailedComponent, {
+          data: { errorMessage: error['statusText'] },
+        });
+      }
+    );
   }
 
   // Checks if userInput is same as result
   sendTaskFour(userInput: any) {
-    const input = this.trim(userInput);
-    const result = ['df.Name', "df['Name']"];
+    const input = userInput.split('\n').map((line: any) => line);
 
-    if (result[0] == input || result[1] == input) {
-      // Filter result and give other tips back
-      const tips = result.filter((tip) => tip !== input);
-
-      // Open success modal with tips
-      this.modalRef = this.modalService.open(ResultComponent, {
-        data: {
-          tips: tips,
-        },
-      });
-    } else {
-      // Open failed modal
-      this.modalRef = this.modalService.open(FailedComponent, {});
-    }
+    this.dService.lectureOne_4(input).subscribe(
+      (result) => {
+        console.info(result);
+        if (result.body['success'] === true) {
+          this.modalRef = this.modalService.open(ResultComponent, {});
+        } else {
+          // Open failed modal
+          this.modalRef = this.modalService.open(FailedComponent, {
+            data: { errorMessage: result.body['errorMessage'] },
+          });
+        }
+      },
+      (error) => {
+        console.error(error);
+        // Open error modal
+        this.modalRef = this.modalService.open(FailedComponent, {
+          data: { errorMessage: error['statusText'] },
+        });
+      }
+    );
   }
 
   // Checks if userInput is same as result
   sendTaskFive(userInput: any) {
-    const input = this.trim(userInput);
-    const result = ['df.Name', "df['Name']"];
+    const input = userInput.split('\n').map((line: any) => line);
 
-    if (result[0] == input || result[1] == input) {
-      // Filter result and give other tips back
-      const tips = result.filter((tip) => tip !== input);
-
-      // Open success modal with tips
-      this.modalRef = this.modalService.open(ResultComponent, {
-        data: {
-          tips: tips,
-        },
-      });
-    } else {
-      // Open failed modal
-      this.modalRef = this.modalService.open(FailedComponent, {});
-    }
+    this.dService.lectureOne_5(input).subscribe(
+      (result) => {
+        console.info(result);
+        if (result.body['success'] === true) {
+          this.modalRef = this.modalService.open(ResultComponent, {
+            data: { result: result.body['result'] },
+          });
+        } else {
+          // Open failed modal
+          this.modalRef = this.modalService.open(FailedComponent, {
+            data: { errorMessage: result.body['errorMessage'] },
+          });
+        }
+      },
+      (error) => {
+        console.error(error);
+        // Open error modal
+        this.modalRef = this.modalService.open(FailedComponent, {
+          data: { errorMessage: error['statusText'] },
+        });
+      }
+    );
   }
 
   // Checks if userInput is same as result
   sendTaskSix(userInput: any) {
-    const input = this.trim(userInput);
-    const result = ['df.Name', "df['Name']"];
+    const input = userInput.split('\n').map((line: any) => line);
 
-    if (result[0] == input || result[1] == input) {
-      // Filter result and give other tips back
-      const tips = result.filter((tip) => tip !== input);
-
-      // Open success modal with tips
-      this.modalRef = this.modalService.open(ResultComponent, {
-        data: {
-          tips: tips,
-        },
-      });
-    } else {
-      // Open failed modal
-      this.modalRef = this.modalService.open(FailedComponent, {});
-    }
+    this.dService.lectureOne_6(input).subscribe(
+      (result) => {
+        console.info(result);
+        if (result.body['success'] === true) {
+          this.modalRef = this.modalService.open(ResultComponent, {
+            data: { result: result.body['result'] },
+          });
+        } else {
+          // Open failed modal
+          this.modalRef = this.modalService.open(FailedComponent, {
+            data: { errorMessage: result.body['errorMessage'] },
+          });
+        }
+      },
+      (error) => {
+        console.error(error);
+        // Open error modal
+        this.modalRef = this.modalService.open(FailedComponent, {
+          data: { errorMessage: error['statusText'] },
+        });
+      }
+    );
   }
 
   // Checks if userInput is same as result
   sendTaskSeven(userInput: any) {
-    const input = this.trim(userInput);
-    const result = ['df.Name', "df['Name']"];
+    const input = userInput.split('\n').map((line: any) => line);
 
-    if (result[0] == input || result[1] == input) {
-      // Filter result and give other tips back
-      const tips = result.filter((tip) => tip !== input);
-
-      // Open success modal with tips
-      this.modalRef = this.modalService.open(ResultComponent, {
-        data: {
-          tips: tips,
-        },
-      });
-    } else {
-      // Open failed modal
-      this.modalRef = this.modalService.open(FailedComponent, {});
-    }
+    this.dService.lectureOne_7(input).subscribe(
+      (result) => {
+        console.info(result);
+        if (result.body['success'] === true) {
+          this.modalRef = this.modalService.open(ResultComponent, {
+            data: { result: result.body['result'] },
+          });
+        } else {
+          // Open failed modal
+          this.modalRef = this.modalService.open(FailedComponent, {
+            data: { errorMessage: result.body['errorMessage'] },
+          });
+        }
+      },
+      (error) => {
+        console.error(error);
+        // Open error modal
+        this.modalRef = this.modalService.open(FailedComponent, {
+          data: { errorMessage: error['statusText'] },
+        });
+      }
+    );
   }
 
   // Checks if userInput is same as result
   sendTaskEight(userInput: any) {
-    const input = this.trim(userInput);
-    const result = ['df.Name', "df['Name']"];
+    const input = userInput.split('\n').map((line: any) => line);
 
-    if (result[0] == input || result[1] == input) {
-      // Filter result and give other tips back
-      const tips = result.filter((tip) => tip !== input);
-
-      // Open success modal with tips
-      this.modalRef = this.modalService.open(ResultComponent, {
-        data: {
-          tips: tips,
-        },
-      });
-    } else {
-      // Open failed modal
-      this.modalRef = this.modalService.open(FailedComponent, {});
-    }
+    this.dService.lectureOne_8(input).subscribe(
+      (result) => {
+        console.info(result);
+        if (result.body['success'] === true) {
+          this.modalRef = this.modalService.open(ResultComponent, {
+            data: { result: result.body['result'] },
+          });
+        } else {
+          // Open failed modal
+          this.modalRef = this.modalService.open(FailedComponent, {
+            data: { errorMessage: result.body['errorMessage'] },
+          });
+        }
+      },
+      (error) => {
+        console.error(error);
+        // Open error modal
+        this.modalRef = this.modalService.open(FailedComponent, {
+          data: { errorMessage: error['statusText'] },
+        });
+      }
+    );
   }
 
   // Checks if userInput is same as result
   sendTaskNine(userInput: any) {
-    const input = this.trim(userInput);
-    const result = ['df.Name', "df['Name']"];
+    const input = userInput.split('\n').map((line: any) => line);
 
-    if (result[0] == input || result[1] == input) {
-      // Filter result and give other tips back
-      const tips = result.filter((tip) => tip !== input);
-
-      // Open success modal with tips
-      this.modalRef = this.modalService.open(ResultComponent, {
-        data: {
-          tips: tips,
-        },
-      });
-    } else {
-      // Open failed modal
-      this.modalRef = this.modalService.open(FailedComponent, {});
-    }
+    this.dService.lectureOne_9(input).subscribe(
+      (result) => {
+        console.info(result);
+        if (result.body['success'] === true) {
+          this.modalRef = this.modalService.open(ResultComponent, {
+            data: { result: result.body['result'] },
+          });
+        } else {
+          // Open failed modal
+          this.modalRef = this.modalService.open(FailedComponent, {
+            data: { errorMessage: result.body['errorMessage'] },
+          });
+        }
+      },
+      (error) => {
+        console.error(error);
+        // Open error modal
+        this.modalRef = this.modalService.open(FailedComponent, {
+          data: { errorMessage: error['statusText'] },
+        });
+      }
+    );
   }
 
   // Checks if userInput is same as result
   sendTaskTen(userInput: any) {
-    const input = this.trim(userInput);
-    const result = ['df.Name', "df['Name']"];
+    const input = userInput.split('\n').map((line: any) => line);
 
-    if (result[0] == input || result[1] == input) {
-      // Filter result and give other tips back
-      const tips = result.filter((tip) => tip !== input);
-
-      // Open success modal with tips
-      this.modalRef = this.modalService.open(ResultComponent, {
-        data: {
-          tips: tips,
-        },
-      });
-    } else {
-      // Open failed modal
-      this.modalRef = this.modalService.open(FailedComponent, {});
-    }
+    this.dService.lectureOne_10(input).subscribe(
+      (result) => {
+        console.info(result);
+        if (result.body['success'] === true) {
+          this.modalRef = this.modalService.open(ResultComponent, {
+            data: { result: result.body['result'] },
+          });
+        } else {
+          // Open failed modal
+          this.modalRef = this.modalService.open(FailedComponent, {
+            data: { errorMessage: result.body['errorMessage'] },
+          });
+        }
+      },
+      (error) => {
+        console.error(error);
+        // Open error modal
+        this.modalRef = this.modalService.open(FailedComponent, {
+          data: { errorMessage: error['statusText'] },
+        });
+      }
+    );
   }
 
   // Checks if userInput is same as result
   sendTaskEleven(userInput: any) {
-    const input = this.trim(userInput);
-    const result = ['df.Name', "df['Name']"];
+    const input = userInput.split('\n').map((line: any) => line);
 
-    if (result[0] == input || result[1] == input) {
-      // Filter result and give other tips back
-      const tips = result.filter((tip) => tip !== input);
-
-      // Open success modal with tips
-      this.modalRef = this.modalService.open(ResultComponent, {
-        data: {
-          tips: tips,
-        },
-      });
-    } else {
-      // Open failed modal
-      this.modalRef = this.modalService.open(FailedComponent, {});
-    }
+    this.dService.lectureOne_11(input).subscribe(
+      (result) => {
+        console.info(result);
+        if (result.body['success'] === true) {
+          this.modalRef = this.modalService.open(ResultComponent, {
+            data: { result: result.body['result'] },
+          });
+        } else {
+          // Open failed modal
+          this.modalRef = this.modalService.open(FailedComponent, {
+            data: { errorMessage: result.body['errorMessage'] },
+          });
+        }
+      },
+      (error) => {
+        console.error(error);
+        // Open error modal
+        this.modalRef = this.modalService.open(FailedComponent, {
+          data: { errorMessage: error['statusText'] },
+        });
+      }
+    );
   }
 
   /* 

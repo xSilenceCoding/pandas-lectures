@@ -7,10 +7,10 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
   styleUrls: ['./result.component.scss'],
 })
 export class ResultComponent implements OnInit {
-  tips: {};
+  result: [];
   constructor(public modalRef: MdbModalRef<ResultComponent>) {}
 
   ngOnInit(): void {
-    console.log(this.tips);
+    //console.log(this.result);
   }
 }

@@ -7,6 +7,7 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
   styleUrls: ['./failed.component.scss'],
 })
 export class FailedComponent implements OnInit {
+  errorMessage: any;
   constructor(public modalRef: MdbModalRef<FailedComponent>) {}
 
   ngOnInit(): void {}

@@ -7,6 +7,7 @@ import { LectureTwoComponent } from './modules/lectures/lecture-two/lecture-two.
 import { LibsComponent } from './modules/libs/libs.component';
 import { LecturesComponent } from './modules/lectures/lectures.component';
 import { AboutMeComponent } from './modules/about-me/about-me.component';
+import { NotFoundComponent } from './modules/lectures/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: 'about-me',
     component: AboutMeComponent,
+  },
+
+  {
+    path: '404',
+    component: NotFoundComponent,
   },
 ];
 

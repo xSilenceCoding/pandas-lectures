@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -35,6 +35,10 @@ import { ResultComponent } from './modules/lectures/modals/result/result.compone
 import { LecturesComponent } from './modules/lectures/lectures.component';
 import { AboutMeComponent } from './modules/about-me/about-me.component';
 
+import { DataService } from './services/data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { NotFoundComponent } from './modules/lectures/not-found/not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +52,7 @@ import { AboutMeComponent } from './modules/about-me/about-me.component';
     ResultComponent,
     LecturesComponent,
     AboutMeComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,8 +75,14 @@ import { AboutMeComponent } from './modules/about-me/about-me.component';
     MdbTooltipModule,
     MdbValidationModule,
     AppRoutingModule,
+    BrowserModule,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,18 @@
+.fc-mask {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+.lecture-container {
+  margin-top: 10em;
+  margin-bottom: 8em;
+  width: 60%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+  .lecture-container {
+    width: 90%;
+  }
+}

@@ -1,12 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
-export class AppComponent implements OnInit {
-  title = 'mdb-angular-ui-kit-free';
+export class AppComponent {
+  title = "SPT - Pandas TuTorials";
 
-  ngOnInit(): void {}
+  successAlert = false;
+
+  copyToClipboard(value: string): void {
+    const tempInput = document.createElement("input");
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+    this.successAlert = true;
+
+    setTimeout(() => {
+      this.successAlert = false;
+    }, 900);
+  }
 }

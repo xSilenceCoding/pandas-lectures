@@ -1,429 +1,261 @@
-<div
-  class="parallax"
-  style="background-image: url(assets/home/bg-lectures.webp)"
->
-  <div class="fc-mask" style="background-color: rgba(0, 0, 0, 0.7)">
-    <div class="card lecture-container">
-      <div class="card-body fc-card">
-        <h5 class="card-title">Lektion 1</h5>
-        <mdb-accordion [flush]="true">
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 1</ng-template>
-            <ng-template mdbAccordionItemBody>
-              Gib alle Daten der Tabelle 'cia' aus.
+<div class="parallax" style="background-image: url(assets/home/bg-lectures.webp)">
+    <div class="fc-mask" style="background-color: rgba(0, 0, 0, 0.7)">
+        <div class="card lecture-container">
+            <div class="card-body fc-card">
+                <h5 class="card-title">Lektion 1</h5>
+                <mdb-accordion [flush]="true">
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 1</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            Gib alle Daten der Tabelle 'cia' aus.
 
-              <div id="debugDiv"></div>
+                            <div id="debugDiv"></div>
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe1
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe1 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskOne()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskOne(Aufgabe1.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskOne()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskOne(Aufgabe1.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
 
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 2</ng-template>
-            <ng-template mdbAccordionItemBody>
-              Gib die Namen aller Länder aus.
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 2</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            Gib die Namen aller Länder aus.
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe2
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe2 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskTwo()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskTwo(Aufgabe2.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskTwo()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskTwo(Aufgabe2.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
 
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 3</ng-template>
-            <ng-template mdbAccordionItemBody>
-              Gib alle Länder an, die mehr als 100 Millionen (1E08) Einwohner
-              haben.
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 3</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            Gib alle Länder an, die mehr als 100 Millionen (1E08) Einwohner
+                            haben.
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe3
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe3 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskThree()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskThree(Aufgabe3.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskThree()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskThree(Aufgabe3.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
 
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 4</ng-template>
-            <ng-template mdbAccordionItemBody>
-              Gib die Länder an, die ein Bruttosozialprodukt (BIP) zwischen 1
-              und 100 Milliarden haben und in Asien liegen.
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 4</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            Gib die Länder an, die ein Bruttosozialprodukt (BIP) zwischen 1
+                            und 100 Milliarden haben und in Asien liegen.
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe4
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe4 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskFour()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskFour(Aufgabe4.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskFour()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskFour(Aufgabe4.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
 
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 5</ng-template>
-            <ng-template mdbAccordionItemBody>
-              Gib die Einwohnerzahlen für Frankreich, Deutschland und Polen aus.
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 5</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            Gib die Einwohnerzahlen für Frankreich, Deutschland und Polen aus.
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe5
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe5 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskFive()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskFive(Aufgabe5.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskFive()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskFive(Aufgabe5.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
 
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 6</ng-template>
-            <ng-template mdbAccordionItemBody>
-              Zeige Name und Einwohnerzahl in Millionen für die Länder
-              Südamerikas.
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 6</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            Zeige Name und Einwohnerzahl in Millionen für die Länder
+                            Südamerikas.
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe6
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe6 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskSix()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskSix(Aufgabe6.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskSix()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskSix(Aufgabe6.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
 
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 7</ng-template>
-            <ng-template mdbAccordionItemBody>
-              Gib die Namen und das pro Kopf-Jahreseinkommen der Länder mit mehr
-              als 200 Millionen Einwohnern aus.
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 7</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            Gib die Namen und das pro Kopf-Jahreseinkommen der Länder mit mehr
+                            als 200 Millionen Einwohnern aus.
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe7
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe7 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskSeven()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskSeven(Aufgabe7.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskSeven()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskSeven(Aufgabe7.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
 
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 8</ng-template>
-            <ng-template mdbAccordionItemBody>
-              Wie vorherige Aufgabe, allerdings sollen die Ergebnisse absteigend
-              nach dem pro Kopf Jahreseinkommen sortiert werden.
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 8</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            Wie vorherige Aufgabe, allerdings sollen die Ergebnisse absteigend
+                            nach dem pro Kopf Jahreseinkommen sortiert werden.
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe8
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe8 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskEight()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskEight(Aufgabe8.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskEight()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskEight(Aufgabe8.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
 
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 9</ng-template>
-            <ng-template mdbAccordionItemBody>
-              In welchen Ländernamen kommt das Wort 'Vereinigte' vor?
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 9</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            In welchen Ländernamen kommt das Wort 'Vereinigte' vor?
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe9
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe9 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskNine()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskNine(Aufgabe9.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskNine()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskNine(Aufgabe9.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
 
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 10</ng-template>
-            <ng-template mdbAccordionItemBody>
-              Lasse Dir in alphabetischer Reihenfolge alle verschiedenen
-              Regionen anzeigen.
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 10</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            Lasse Dir in alphabetischer Reihenfolge alle verschiedenen
+                            Regionen anzeigen.
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe10
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe10 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskTen()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskTen(Aufgabe10.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskTen()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskTen(Aufgabe10.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
 
-          <mdb-accordion-item>
-            <ng-template mdbAccordionItemHeader>Aufgabe 11</ng-template>
-            <ng-template mdbAccordionItemBody>
-              Zeige alle Länder, bei denen das Bruttoinlandsprodukt unbekannt
-              ist.
+                    <mdb-accordion-item>
+                        <ng-template mdbAccordionItemHeader>Aufgabe 11</ng-template>
+                        <ng-template mdbAccordionItemBody>
+                            Zeige alle Länder, bei denen das Bruttoinlandsprodukt unbekannt
+                            ist.
 
-              <mdb-form-control class="fc-richtextbox">
-                <textarea
-                  #Aufgabe11
-                  mdbInput
-                  class="form-control"
-                  id="textAreaExample"
-                  rows="4"
-                ></textarea>
-                <label mdbLabel class="form-label" for="textAreaExample"
-                  >Pandas Syntax</label
-                >
-              </mdb-form-control>
+                            <mdb-form-control class="fc-richtextbox">
+                                <textarea #Aufgabe11 mdbInput class="form-control" id="textAreaExample"
+                                    rows="4"></textarea>
+                                <label mdbLabel class="form-label" for="textAreaExample">Pandas Syntax</label>
+                            </mdb-form-control>
 
-              <div class="fc-button-container">
-                <button
-                  type="button"
-                  class="btn btn-info me-2"
-                  (click)="helpTaskEleven()"
-                >
-                  Hilfe
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="sendTaskElevent(Aufgabe11.value)"
-                >
-                  Abschicken
-                </button>
-              </div>
-            </ng-template>
-          </mdb-accordion-item>
-        </mdb-accordion>
-      </div>
+                            <div class="fc-button-container">
+                                <button type="button" class="btn btn-info me-2" (click)="helpTaskEleven()">
+                                    Hilfe
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="sendTaskEleven(Aufgabe11.value)">
+                                    Abschicken
+                                </button>
+                            </div>
+                        </ng-template>
+                    </mdb-accordion-item>
+                </mdb-accordion>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

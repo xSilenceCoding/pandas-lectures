@@ -1,19 +1,19 @@
 <div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Fehlgeschlagen</h5>
-  <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+    <h5 class="modal-title" id="exampleModalLabel">Fehlgeschlagen</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
 </div>
 <div class="modal-body">
-  Leider nicht ...<br />
-  Wenn du garnicht mehr weiter kommst, kannst du die Hilfe nutzen
+    Leider nicht ...<br />
+    Wenn du garnicht mehr weiter kommst, kannst du die Hilfe nutzen
 
-  <div *ngIf="errorMessage != null">
-    <br>
-    <span><b>Error Mesage: </b></span>
-    <span>{{ errorMessage }}</span>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modalRef.close()">
-      Close
-    </button>
-  </div>
+    <div *ngIf="errorMessage != null">
+        <br>
+        <span><b>Error Mesage: </b></span>
+        <span>{{ errorMessage }}</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modalRef.close()">
+            Close
+        </button>
+    </div>
 </div>

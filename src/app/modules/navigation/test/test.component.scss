@@ -1,0 +1,208 @@
+$bg: #1d1b28;
+$color-main: #4628e9;
+$color-main-dark: #191528;
+$color-second: #aaa7b9;
+$color-mr: #65b32e;
+$transition: all 0.3s ease-out;
+
+a {
+  text-decoration: none;
+  vertical-align: middle;
+  color: $color-second;
+}
+ul {
+  list-style: none;
+}
+
+.site {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 270px;
+  background-color: $bg;
+  display: flex;
+  flex-direction: column;
+  transition: $transition;
+  -webkit-transition: $transition;
+  overflow: hidden;
+}
+
+/* Brand / logo */
+.brand {
+  height: 80px;
+  padding: 25px;
+  border-bottom: 1px solid;
+  border-color: $color-main-dark;
+  display: flex;
+  justify-content: space-between;
+}
+.brand :is(div, a) {
+  display: flex;
+  align-items: center;
+}
+.logo a {
+  font-weight: 800;
+  font-size: 1.5em;
+  color: white;
+}
+.logo span {
+  color: $color-mr;
+}
+.trigger ion-icon,
+nav a ion-icon:first-child {
+  font-size: 20px;
+}
+.trigger [name="menu-outline"],
+.mininav .trigger [name="chevron-back-outline"] {
+  display: none;
+}
+.mininav .trigger [name="menu-outline"] {
+  display: block;
+}
+
+/* Navigation */
+.navbar {
+  position: relative;
+}
+
+nav {
+  overflow-y: none;
+  overflow-x: hidden;
+  height: 80vh;
+}
+
+nav li a,
+.sign-out a {
+  position: relative;
+  padding: 15px 25px;
+  display: flex;
+  flex: 0 0 100%;
+  align-items: center;
+  transform: $transition;
+  -webkit-transform: $transition;
+}
+
+nav li :is(a:hover, .active) {
+  color: white;
+}
+nav li a > * {
+  display: flex;
+  align-items: center;
+}
+
+nav a ion-icon {
+  flex-shrink: 0;
+  transition: $transition;
+  -webkit-transition: $transition;
+}
+nav a ion-icon:first-child {
+  margin-right: 15px;
+  color: #504a6e;
+}
+
+nav li a span {
+  display: flex;
+  flex-grow: 1;
+  transition: $transition;
+  -webkit-transition: $transition;
+}
+
+nav li a:hover,
+.collapse a span {
+  color: white;
+}
+
+nav ul ul li a::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background-color: $color-second;
+  border-radius: 50%;
+  margin: 0 15px;
+}
+nav li a:hover::before {
+  background-color: $color-main;
+}
+
+nav :is(a:hover, .active) ion-icon:first-child,
+.trigger a:hover ion-icon {
+  color: $color-mr;
+}
+
+nav li.small {
+  color: white;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin: 25px 25px 5px;
+  letter-spacing: 2px;
+}
+
+/* Show Submenu */
+nav li.has-child1 ul {
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+nav li.collapse ul {
+  max-height: 100vh;
+  opacity: 1;
+  transition: all 0.5s ease-in;
+}
+nav li.collapse ion-icon:last-child {
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+}
+
+.sign-out {
+  display: flex;
+  align-items: center;
+}
+
+ion-icon {
+  pointer-events: none;
+}
+
+/* Mini Nav */
+.mininav .sidebar {
+  width: 70px;
+}
+.mininav :is(.logo, nav ul ul a) {
+  display: none;
+}
+
+.mininav nav a *:not(ion-icon:first-child),
+.mininav nav .small {
+  opacity: 0;
+}
+.mininav .main {
+  padding-left: 70px;
+}
+
+/* Scroll bar */
+nav::-webkit-scrollbar {
+  width: 7px;
+}
+
+nav::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  overflow: auto;
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
+}
+
+nav:hover::-webkit-scrollbar-thumb {
+  background-color: $color-mr;
+}
+
+.mini-main-content {
+  width: calc(100% - 70px);
+  left: 70px;
+  transition: $transition;
+  -webkit-transition: $transition;
+}

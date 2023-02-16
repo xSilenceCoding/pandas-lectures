@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
+  selector: "app-navigation",
+  templateUrl: "./navigation.component.html",
+  styleUrls: ["./navigation.component.scss"],
 })
 export class NavigationComponent implements OnInit {
   constructor() {}
 
-  lecturesNavbar = document.getElementById('fc-lectures-navbar');
+  lecturesNavbar = document.getElementById("fc-lectures-navbar");
 
   ngOnInit(): void {
     //TOP NAVIGATION
@@ -20,41 +20,41 @@ export class NavigationComponent implements OnInit {
           document.body.scrollTop > 80 ||
           document.documentElement.scrollTop > 80
         ) {
-          document.getElementById('myTopnav').style.width = '100%';
-          document.getElementById('myTopnav').style.backgroundColor =
-            'rgba(27, 18, 18, 1)';
-          document.getElementById('header').style.position = 'fixed';
-          document.getElementById('header').style.top = '0%';
+          document.getElementById("myTopnav").style.width = "100%";
+          document.getElementById("myTopnav").style.backgroundColor =
+            "rgba(27, 18, 18, 1)";
+          document.getElementById("header").style.position = "fixed";
+          document.getElementById("header").style.top = "0%";
         } else {
-          document.getElementById('myTopnav').style.width = '80%';
-          document.getElementById('myTopnav').style.backgroundColor =
-            'rgba(1, 1, 1, 0.6)';
-          document.getElementById('header').style.position = 'fixed';
-          document.getElementById('header').style.top = '2rem';
+          document.getElementById("myTopnav").style.width = "80%";
+          document.getElementById("myTopnav").style.backgroundColor =
+            "rgba(1, 1, 1, 0.6)";
+          document.getElementById("header").style.position = "fixed";
+          document.getElementById("header").style.top = "2rem";
         }
       }
     };
   }
 
   navBar() {
-    var x = document.getElementById('myTopnav');
-    const lecturesNavbar = document.getElementById('fc-lectures-navbar');
+    var x = document.getElementById("myTopnav");
+    const lecturesNavbar = document.getElementById("fc-lectures-navbar");
 
-    if (x.className === 'topnav') {
-      x.className += ' responsive';
-      lecturesNavbar.setAttribute('style', 'display:none');
+    if (x.className === "topnav") {
+      x.className += " responsive";
+      lecturesNavbar.setAttribute("style", "display:none");
     } else {
-      x.className = 'topnav';
-      lecturesNavbar.setAttribute('style', 'display:block');
+      x.className = "topnav";
+      lecturesNavbar.setAttribute("style", "display:block");
     }
   }
 
   closeNavAfterNavigation() {
-    var x = document.getElementById('myTopnav');
-    if (x.className === 'topnav') {
-      x.className += ' responsive';
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
     } else {
-      x.className = 'topnav';
+      x.className = "topnav";
     }
   }
 }
